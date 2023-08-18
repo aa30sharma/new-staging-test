@@ -3,3 +3,6 @@ this is new file
 this third line
 fifthe line
 sixth line
+hello
+hello hello
+
