@@ -8,7 +8,7 @@ steps {
 
                             echo "Git config username"
                             sh 'git config --global credential.username ${GIT_USERNAME}'
-                            echo "Git config password"
+                           
                             
 
                             echo "Git tag"
