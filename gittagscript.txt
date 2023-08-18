@@ -1,0 +1,21 @@
+steps {
+                      
+
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                                          credentialsId: 'ARAM - ortbitbucket.sa',
+                                          usernameVariable: 'GIT_USERNAME',
+                                          passwordVariable: 'GIT_PASSWORD']]) {
+
+                            echo "Git config username"
+                            sh 'git config --global credential.username ${GIT_USERNAME}'
+                            echo "Git config password"
+                            sh 'git config --global credential.helper \'!f() { echo "password=${GIT_PASSWORD}"; }; f\''
+
+                            echo "Git tag"
+                            sh "git tag ${TAG_NAME}"
+                            echo "Git push tag"
+                            sh 'git push --tags'
+                            echo "Git done"
+                         
+                        }
+                    } // steps
